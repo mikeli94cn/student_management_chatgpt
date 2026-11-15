@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: student-management-system
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/student_db_codex?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC}
+    username: ${DB_USERNAME:student_app_codex}
+    password: ${DB_PASSWORD:123456}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+
+server:
+  port: 8082
+
+logging:
+  level:
+    org.hibernate.SQL: debug

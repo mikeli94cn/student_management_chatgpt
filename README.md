@@ -16,9 +16,9 @@ Spring Boot manages compatible Spring, Hibernate, and Spring Data versions. Avoi
 Log in to MySQL as an administrator and execute `database/create-database.sql`.
 
 For a local learning database, the script creates:
-- database: `student_db`
-- account: `student_app`
-- example password: `change-me`
+- database: `student_db_codex`
+- account: `student_app_codex`
+- example password: `123456`
 
 Change the example password before using this beyond a local demo. If MySQL is in Docker or on another machine, adjust the database host, user host permissions, and `DB_URL`.
 
@@ -31,7 +31,7 @@ Change the example password before using this beyond a local demo. If MySQL is i
 5. Ensure `application.yml` credentials match your MySQL setup.
 6. Run `StudentManagementApplication`.
 
-The API listens on `http://localhost:8080`.
+The API listens on `http://localhost:8082`.
 
 You can override database settings using environment variables:
 - `DB_URL`
@@ -43,7 +43,7 @@ You can override database settings using environment variables:
 Create a student:
 
 ```bash
-curl -i -X POST http://localhost:8080/api/students \
+curl -i -X POST http://localhost:8082/api/students \
   -H 'Content-Type: application/json' \
   -d '{
     "studentNumber": "S2026001",
@@ -57,31 +57,31 @@ curl -i -X POST http://localhost:8080/api/students \
 List students:
 
 ```bash
-curl -i 'http://localhost:8080/api/students'
+curl -i 'http://localhost:8082/api/students'
 ```
 
 Pagination:
 
 ```bash
-curl -i 'http://localhost:8080/api/students?page=0&size=5'
+curl -i 'http://localhost:8082/api/students?page=0&size=5'
 ```
 
 Search by name or email:
 
 ```bash
-curl -i 'http://localhost:8080/api/students?keyword=alice'
+curl -i 'http://localhost:8082/api/students?keyword=alice'
 ```
 
 Get a student:
 
 ```bash
-curl -i http://localhost:8080/api/students/1
+curl -i http://localhost:8082/api/students/1
 ```
 
 Update a student (PUT replaces the editable fields; include all required fields):
 
 ```bash
-curl -i -X PUT http://localhost:8080/api/students/1 \
+curl -i -X PUT http://localhost:8082/api/students/1 \
   -H 'Content-Type: application/json' \
   -d '{
     "studentNumber": "S2026001",
@@ -95,7 +95,7 @@ curl -i -X PUT http://localhost:8080/api/students/1 \
 Delete a student:
 
 ```bash
-curl -i -X DELETE http://localhost:8080/api/students/1
+curl -i -X DELETE http://localhost:8082/api/students/1
 ```
 
 Expected status codes:
